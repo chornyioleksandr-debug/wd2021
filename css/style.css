@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   color: #333333;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Pacifico", cursive;
 }
 
 .container {
@@ -46,6 +46,17 @@ nav ul a:hover {
 .me {
   width: 128px;
   height: 128px;
+}
+
+.about-me h1 {
+  font-size: 64px;
+  font-family: "Grey Qo", cursive;
+}
+.about-me p {
+  color: #f2f2f2;
+  margin-top: 30px;
+  font-size: 24px;
+  font-family: "Grechen Fuemen", cursive;
 }
 
 .education, .skl, .cont {
@@ -97,8 +108,19 @@ nav ul a:hover {
 }
 .cards .flip-card-back {
   background-color: #999999;
-  color: #f2f2f2;
   transform: rotateY(180deg);
+}
+.cards .flip-card-back h1 {
+  margin: 30px 0;
+  font-family: "Amatic SC", cursive;
+}
+.cards .flip-card-back p {
+  font-family: "Rubik Beastly", cursive;
+  margin-bottom: 40px;
+}
+.cards .flip-card-back a {
+  font-family: "Gluten", cursive;
+  text-decoration: none;
 }
 
 .skills-body {
