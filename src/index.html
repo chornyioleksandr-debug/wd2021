@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My shop</title>
+    <link rel="stylesheet" href="scss/style.scss">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Grey+Qo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Beastly&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header class="main-header">
+        <h1 class="band-name band-name-large">Bralech</h1>
+        <a href="cart.html"><img class="logo" src="img/shopping-cart.png" alt=""></a>
+    </header>
+    <section class="container content-section">
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">MacBook Pro 13</span>
+                <img class="shop-item-image" src="img/1.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$1299</span>
+                    <button class="btn btn-primary shop-item-button" type="button">BUY</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Asus Zenbook Pro Duo</span>
+                <img class="shop-item-image" src="img/2.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$1499</span>
+                    <button class="btn btn-primary shop-item-button"type="button">BUY</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Asus Rog Flow</span>
+                <img class="shop-item-image" src="img/3.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$1599</span>
+                    <button class="btn btn-primary shop-item-button" type="button">BUY</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container content-section">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
