@@ -1,0 +1,230 @@
+$color0: hsl(0, 0%, 5%);
+$color20: hsl(0, 0%, 20%);
+$color40: hsl(0, 0%, 40%);
+$color60: hsl(0, 0%, 60%);
+$color80: hsl(0, 0%, 80%);
+$color100: hsl(0, 0%, 95%);
+
+$font-size: 15px;
+
+* {
+    box-sizing: border-box;
+    font-family: Raleway;
+    color: $color40;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.main-header {
+    background-color: rgba(0, 0, 0, .6);
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    
+    .logo {
+        width: 64px;
+        height: 64px;
+        margin-top: 40px;
+    }
+
+    .band-name {
+        text-align: center;
+        margin: 0;
+        font-size: 4em;
+        font-family: "Booter - Zero Zero";
+        font-weight: normal;
+        color: $color100;
+    }
+    
+    .band-name-large {
+        font-size: 8em;
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+
+    .content-section {
+        margin: 1em;
+    }
+}
+.section-header {
+    font-family: "Metal Mania";
+    font-weight: normal;
+    color: $color20;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+}
+
+
+.btn-primary {
+    color: $color100;
+    background-color: $color40;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $color60;
+    }
+}
+
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .shop-item {
+        margin: 30px;
+    
+        .shop-item-title {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            color: $color20;
+            margin-bottom: 15px;
+        }
+        
+        .shop-item-image {
+            height: 250px;
+        }
+        
+        .shop-item-details {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+
+            .shop-item-price {
+                flex-grow: 1;
+                color: $color20;
+            }
+        }
+        
+        
+        
+    }
+}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: $color20;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color0;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+
+    &:last-child {
+        border-bottom: 1px solid $color0;
+    }
+    
+    &:last-child .cart-column {
+        border: none;
+    }
+
+    .cart-item {
+        width: 45%;
+    }
+    
+    .cart-price {
+        width: 20%;
+        font-size: 1.2em;
+        color: $color20;
+    }
+    
+    .cart-quantity {
+        width: 35%;
+    }
+}
+
+
+.cart-item-title {
+    color: $color20;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: $color100;
+    background-color: $color80;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $color60;
+    }
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid $color40;
+    background-color: $color80;
+    color: $color20;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+
+    .cart-total-title {
+        font-weight: bold;
+        font-size: 1.5em;
+        color: $color20;
+        margin-right: 20px;
+    }
+    
+    .cart-total-price {
+        color: $color20;
+        font-size: 1.1em;
+    }
+}
+
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
