@@ -117,115 +117,63 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
-if (document.readyState == 'loading') {
-  document.addEventListener('DOMContentLoaded', ready);
-} else {
-  ready();
+})({"main.js":[function(require,module,exports) {
+var carts = document.querySelectorAll('.add-cart');
+var products = [{
+  name: 'Black Hoodie',
+  tag: 'blackhoodie_1',
+  price: 15,
+  inCart: 0
+}, {
+  name: 'Black Hoodie',
+  tag: 'blackhoodie_2',
+  price: 20,
+  inCart: 0
+}, {
+  name: 'Grey T-Shirt',
+  tag: 'greytshirt',
+  price: 10,
+  inCart: 0
+}, {
+  name: 'Green T-Shirt',
+  tag: 'greentshirt',
+  price: 25,
+  inCart: 0
+}];
+
+var _loop = function _loop(i) {
+  carts[i].addEventListener('click', function () {
+    cartNumbers(products[i]);
+  });
+};
+
+for (var i = 0; i < carts.legnth; i++) {
+  _loop(i);
 }
 
-function ready() {
-  var removeCartItemButtons = document.getElementsByClassName('btn-danger');
+function onLoadCartNumbers() {
+  var productNumbers = localStorage.getItem('cartNumbers');
 
-  for (var i = 0; i < removeCartItemButtons.length; i++) {
-    var button = removeCartItemButtons[i];
-    button.addEventListener('click', removeCartItem);
+  if (productNumbers) {
+    document.querySelector('.cart span').textContent = productNumbers;
   }
-
-  var quantityInputs = document.getElementsByClassName('cart-quantity-input');
-
-  for (var i = 0; i < quantityInputs.length; i++) {
-    var input = quantityInputs[i];
-    input.addEventListener('change', quantityChanged);
-  }
-
-  var addToCartButtons = document.getElementsByClassName('shop-item-button');
-
-  for (var i = 0; i < addToCartButtons.length; i++) {
-    var button = addToCartButtons[i];
-    button.addEventListener('click', addToCartClicked);
-  }
-
-  document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked);
 }
 
-function purchaseClicked() {
-  if (confirm("Pay for your shopping")) {
-    window.location = "credit.html";
+function cartNumbers(product) {
+  console.log("The product clicked is ", product);
+  var productNumbers = localStorage.getItem('cartNumbers');
+  productNumbers = parseInt(productNumbers);
+
+  if (productNumbers) {
+    localStorage.setItem('cartNumbers', productNumbers + 1);
+    document.querySelector('.cart span').textContent = productNumbers + 1;
+  } else {
+    localStorage.setItem('cartNumbers', 1);
+    document.querySelector('.cart span').textContent = 1;
   }
-
-  var cartItems = document.getElementsByClassName('cart-items')[0];
-
-  while (cartItems.hasChildNodes()) {
-    cartItems.removeChild(cartItems.firstChild);
-  }
-
-  updateCartTotal();
 }
 
-function removeCartItem(event) {
-  var buttonClicked = event.target;
-  buttonClicked.parentElement.parentElement.remove();
-  updateCartTotal();
-}
-
-function quantityChanged(event) {
-  var input = event.target;
-
-  if (isNaN(input.value) || input.value <= 0) {
-    input.value = 1;
-  }
-
-  updateCartTotal();
-}
-
-function addToCartClicked(event) {
-  var button = event.target;
-  var shopItem = button.parentElement.parentElement;
-  var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
-  var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText;
-  var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src;
-  addItemToCart(title, price, imageSrc);
-  updateCartTotal();
-}
-
-function addItemToCart(title, price, imageSrc) {
-  var cartRow = document.createElement('div');
-  cartRow.classList.add('cart-row');
-  var cartItems = document.getElementsByClassName('cart-items')[0];
-  var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
-  var quantity = 1;
-
-  for (var i = 0; i < cartItemNames.length; i++) {
-    if (cartItemNames[i].innerText == title) {
-      alert('You added this item.Please, change quantity of thi shop item');
-      return;
-    }
-  }
-
-  var cartRowContents = "\n        <div class=\"cart-item cart-column\">\n            <img class=\"cart-item-image\" src=\"".concat(imageSrc, "\" width=\"100\" height=\"100\">\n            <span class=\"cart-item-title\">").concat(title, "</span>\n        </div>\n        <span class=\"cart-price cart-column\">").concat(price, "</span>\n        <div class=\"cart-quantity cart-column\">\n            <input class=\"cart-quantity-input\" type=\"number\" value=\"1\">\n            <button class=\"btn btn-danger\" type=\"button\">REMOVE</button>\n        </div>");
-  cartRow.innerHTML = cartRowContents;
-  cartItems.append(cartRow);
-  cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
-  cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
-}
-
-function updateCartTotal() {
-  var cartItemContainer = document.getElementsByClassName('cart-items')[0];
-  var cartRows = cartItemContainer.getElementsByClassName('cart-row');
-  var total = 0;
-
-  for (var i = 0; i < cartRows.length; i++) {
-    var cartRow = cartRows[i];
-    var priceElement = cartRow.getElementsByClassName('cart-price')[0];
-    var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
-    var price = parseFloat(priceElement.innerText.replace('$', ''));
-    var quantity = quantityElement.value;
-    total = total + price * quantity;
-  }
-
-  document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
-}
+onLoadCartNumbers();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -254,7 +202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64733" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62426" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -430,5 +378,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
+//# sourceMappingURL=/main.1f19ae8e.js.map

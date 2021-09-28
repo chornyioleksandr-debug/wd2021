@@ -117,114 +117,37 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
-if (document.readyState == 'loading') {
-  document.addEventListener('DOMContentLoaded', ready);
-} else {
-  ready();
-}
+})({"credit.js":[function(require,module,exports) {
+// Handle toggling between form inputs
+$('.buttons button').on('click', function () {
+  var $self = $(this);
 
-function ready() {
-  var removeCartItemButtons = document.getElementsByClassName('btn-danger');
+  if (!$self.hasClass('active')) {
+    var toggle = $self.data('toggle'); // Switch active buttons
 
-  for (var i = 0; i < removeCartItemButtons.length; i++) {
-    var button = removeCartItemButtons[i];
-    button.addEventListener('click', removeCartItem);
+    $('.active').removeClass('active');
+    $self.addClass('active'); // Switch active forms
+
+    $('form.option').attr('disabled', true);
+    $(toggle).addClass('active').attr('disabled', false);
+    setFormHeight();
   }
+});
+$(function () {
+  // Set form height on document ready
+  setFormHeight(); // Set up formatting for Credit Card fields
 
-  var quantityInputs = document.getElementsByClassName('cart-quantity-input');
+  $('#credit .cc-number').formatCardNumber();
+  $('#credit .cc-expires').formatCardExpiry();
+  $('#credit .cc-cvc').formatCardCVC();
+}); // Set the height of the container to the height of the active form elements
 
-  for (var i = 0; i < quantityInputs.length; i++) {
-    var input = quantityInputs[i];
-    input.addEventListener('change', quantityChanged);
-  }
-
-  var addToCartButtons = document.getElementsByClassName('shop-item-button');
-
-  for (var i = 0; i < addToCartButtons.length; i++) {
-    var button = addToCartButtons[i];
-    button.addEventListener('click', addToCartClicked);
-  }
-
-  document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked);
-}
-
-function purchaseClicked() {
-  if (confirm("Pay for your shopping")) {
-    window.location = "credit.html";
-  }
-
-  var cartItems = document.getElementsByClassName('cart-items')[0];
-
-  while (cartItems.hasChildNodes()) {
-    cartItems.removeChild(cartItems.firstChild);
-  }
-
-  updateCartTotal();
-}
-
-function removeCartItem(event) {
-  var buttonClicked = event.target;
-  buttonClicked.parentElement.parentElement.remove();
-  updateCartTotal();
-}
-
-function quantityChanged(event) {
-  var input = event.target;
-
-  if (isNaN(input.value) || input.value <= 0) {
-    input.value = 1;
-  }
-
-  updateCartTotal();
-}
-
-function addToCartClicked(event) {
-  var button = event.target;
-  var shopItem = button.parentElement.parentElement;
-  var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
-  var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText;
-  var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src;
-  addItemToCart(title, price, imageSrc);
-  updateCartTotal();
-}
-
-function addItemToCart(title, price, imageSrc) {
-  var cartRow = document.createElement('div');
-  cartRow.classList.add('cart-row');
-  var cartItems = document.getElementsByClassName('cart-items')[0];
-  var cartItemNames = cartItems.getElementsByClassName('cart-item-title');
-  var quantity = 1;
-
-  for (var i = 0; i < cartItemNames.length; i++) {
-    if (cartItemNames[i].innerText == title) {
-      alert('You added this item.Please, change quantity of thi shop item');
-      return;
-    }
-  }
-
-  var cartRowContents = "\n        <div class=\"cart-item cart-column\">\n            <img class=\"cart-item-image\" src=\"".concat(imageSrc, "\" width=\"100\" height=\"100\">\n            <span class=\"cart-item-title\">").concat(title, "</span>\n        </div>\n        <span class=\"cart-price cart-column\">").concat(price, "</span>\n        <div class=\"cart-quantity cart-column\">\n            <input class=\"cart-quantity-input\" type=\"number\" value=\"1\">\n            <button class=\"btn btn-danger\" type=\"button\">REMOVE</button>\n        </div>");
-  cartRow.innerHTML = cartRowContents;
-  cartItems.append(cartRow);
-  cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
-  cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
-}
-
-function updateCartTotal() {
-  var cartItemContainer = document.getElementsByClassName('cart-items')[0];
-  var cartRows = cartItemContainer.getElementsByClassName('cart-row');
-  var total = 0;
-
-  for (var i = 0; i < cartRows.length; i++) {
-    var cartRow = cartRows[i];
-    var priceElement = cartRow.getElementsByClassName('cart-price')[0];
-    var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
-    var price = parseFloat(priceElement.innerText.replace('$', ''));
-    var quantity = quantityElement.value;
-    total = total + price * quantity;
-  }
-
-  document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
+function setFormHeight() {
+  var activeHeight = $('.option.active').height(),
+      submitHeight = $('.form-submit').outerHeight();
+  $('.input').animate({
+    height: activeHeight + submitHeight + 5
+  }, 350);
 }
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -254,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64733" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62254" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -430,5 +353,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","credit.js"], null)
+//# sourceMappingURL=/credit.a6d8e7a6.js.map

@@ -6,19 +6,10 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html"
-
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chornyioleksandr-debug/wd2021.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chornyioleksandr-debug/wd2021/issues"
-  },
-  "homepage": "https://github.com/chornyioleksandr-debug/wd2021#readme",
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "sass": "^1.42.1"
