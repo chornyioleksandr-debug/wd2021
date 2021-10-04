@@ -1,0 +1,13 @@
+[
+    {"name": "Elon Musk",
+    "age": 50,
+    "hobbies": ["spacex", "investment", "programming"]},
+
+    {"name": "Jeff Bezos",
+    "age": 57,
+    "hobbies": ["amazon", "businessman", "investment"]},
+
+    {"name": "Bill Gates",
+    "age": 65,
+    "hobbies": ["mircosoft", "philanthropist", "software developer"]}
+]

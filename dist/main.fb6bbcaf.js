@@ -184,7 +184,79 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"scss/style.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./..\\img\\informer.png":[["informer.9e700e83.png","img/informer.png"],"img/informer.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/main.js":[function(require,module,exports) {
+"use strict";
+
+require("../scss/style.scss");
+
+// Weather
+var text1 = document.getElementById("place1");
+var url1 = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=c95b8644a5ebf1539fcb7b57fd61c64a"; //c95b8644a5ebf1539fcb7b57fd61c64a
+
+var res1;
+fetch(url1).then(function (response) {
+  return response.json();
+}).then(function (weather) {
+  res1 = weather;
+  fillHtml(res1);
+}).catch(function (err) {
+  return console.log(err);
+});
+
+var fillHtml = function fillHtml(res1) {
+  text1.textContent = "Temperature: ".concat(Math.round(res1.main.temp - 273), " deg, speed wind: ").concat(res1.wind.speed, " m/s, clouds: ").concat(res1.weather[0].description);
+}; //People
+
+
+var text_peo1 = document.getElementById("place_peo1");
+var text_peo2 = document.getElementById("place_peo2");
+var text_peo3 = document.getElementById("place_peo3");
+var name1 = document.getElementById("name1");
+var name2 = document.getElementById("name2");
+var name3 = document.getElementById("name3");
+var url2 = "data.json";
+var res2;
+fetch(url2).then(function (response) {
+  return response.json();
+}).then(function (json) {
+  res2 = json;
+  peopleHTML(res2);
+}).catch(function (err) {
+  return console.log(err);
+});
+
+var peopleHTML = function peopleHTML(res) {
+  name1.textContent = "".concat(res[0].name, "(age: ").concat(res[0].age, ")");
+  name2.textContent = "".concat(res[1].name, "(age: ").concat(res[1].age, ")");
+  name3.textContent = "".concat(res[2].name, "(age: ").concat(res[2].age, ")");
+  text_peo1.textContent = "Hobbies: ".concat(res[0].hobbies);
+  text_peo2.textContent = "Hobbies: ".concat(res[1].hobbies);
+  text_peo3.textContent = "Hobbies: ".concat(res[2].hobbies);
+}; //Source3
+
+
+var source_title = document.getElementById("sou_title");
+var source_complete = document.getElementById("complete");
+var id = document.getElementById("id");
+var res3;
+fetch('https://jsonplaceholder.typicode.com/todos/1').then(function (response) {
+  return response.json();
+}).then(function (json) {
+  res3 = json;
+  sourceHTML(res3);
+});
+
+var sourceHTML = function sourceHTML(res) {
+  source_title.textContent = "".concat(res.title);
+  source_complete.textContent = "My resume is finished: ".concat(res.completed);
+  id.textContent = "My id: ".concat(res.userId);
+};
+},{"../scss/style.scss":"scss/style.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -388,5 +460,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/main.js"], null)
+//# sourceMappingURL=/main.fb6bbcaf.js.map

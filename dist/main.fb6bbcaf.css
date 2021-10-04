@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  font-family: "Pacifico", cursive;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+nav {
+  background: #666666;
+  font-size: 15px;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+nav ul a {
+  display: inline-block;
+  margin: 15px;
+  color: #cccccc;
+  font-size: 15px;
+  text-decoration: none;
+}
+nav ul a:hover {
+  color: #f2f2f2;
+}
+
+.hero {
+  background-image: url("/informer.9e700e83.png");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+}
+
+.foto {
+  text-align: center;
+  padding-top: 20%;
+}
+
+.inform {
+  width: 128px;
+  height: 128px;
+}
+
+.about h1 {
+  font-size: 64px;
+  font-family: "Grey Qo", cursive;
+}
+.about p {
+  color: #0d0d0d;
+  margin-top: 20px;
+  font-size: 24px;
+  font-family: "Grechen Fuemen", cursive;
+}
+
+.weather, .people {
+  background-color: #cccccc;
+}
+
+.wea-header, .peo-header, .sou-header {
+  background-color: #999999;
+  text-align: center;
+  display: block;
+}
+.wea-header h3, .peo-header h3, .sou-header h3 {
+  padding: 20px 0;
+}
+
+.about-wea {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 400px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cont-wea {
+  padding: 2px 16px;
+  text-align: center;
+}
+.cont-wea a {
+  text-decoration: none;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 0;
+}
+
+.about-peo {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 400px;
+}
+.about-peo:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.about-peo img {
+  display: flex;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.cont-peo {
+  padding: 2px 16px;
+  text-align: center;
+}
+.cont-peo a {
+  text-decoration: none;
+}
+
+.about_sou {
+  display: block;
+  text-align: center;
+}
+.about_sou h4 {
+  font-size: 48px;
+  font-family: "Amatic SC", cursive;
+}
+.about_sou p {
+  margin: 10px 0;
+  font-family: "Gluten", cursive;
+}
+
+.copyright {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  font-size: 10px;
+  margin: 0 auto;
+  background-color: #cccccc;
+}
+.copyright ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.copyright ul a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 15px;
+  text-decoration: none;
+}
+.copyright ul a img {
+  width: 32px;
+  height: 32px;
+}
+
+/*# sourceMappingURL=/main.fb6bbcaf.css.map */
