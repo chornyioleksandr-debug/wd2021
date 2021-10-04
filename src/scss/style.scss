@@ -1,0 +1,185 @@
+$color0: hsl(0, 0%, 5%);
+$color20: hsl(0, 0%, 20%);
+$color40: hsl(0, 0%, 40%);
+$color60: hsl(0, 0%, 60%);
+$color80: hsl(0, 0%, 80%);
+$color100: hsl(0, 0%, 95%);
+
+$font-size: 15px;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    color: $color20;
+    font-family: 'Pacifico', cursive;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+nav {
+    background: $color40;
+    font-size: $font-size;
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        a{
+            display: inline-block;
+            margin: 15px;
+            color: $color80;
+            font-size: $font-size;
+            text-decoration: none;
+            
+        }
+        a:hover{
+            color: $color100;
+        }
+    }
+}
+
+.hero { 
+    background-image: url("../img/informer.png");
+    background-color: $color80;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+}
+
+.foto {
+    text-align: center;
+    padding-top: 20%;
+}
+
+.inform{
+    width: 128px;
+    height: 128px;
+}
+.about{
+    h1 {
+        font-size: 64px;
+        font-family: 'Grey Qo', cursive;
+    }
+    p {
+        color: $color0;
+        margin-top: 20px;
+        font-size: 24px;
+        font-family: 'Grechen Fuemen', cursive;;
+    }
+}
+
+.weather, .people {
+    background-color: $color80;
+}
+
+.wea-header, .peo-header, .sou-header {
+    background-color: $color60;
+    text-align: center;
+    display: block;
+
+    h3 {
+        padding: 20px 0;
+    }
+}
+
+.about-wea {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 400px;
+}
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.cont-wea {
+    padding: 2px 16px;
+    text-align: center;
+    
+    a {
+        text-decoration: none;
+    }
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.about-peo {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 400px;
+
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    img {
+        display: flex;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+.cont-peo {
+    padding: 2px 16px;
+    text-align: center;
+    
+    a {
+        text-decoration: none;
+    }
+}
+
+
+.about_sou {
+    display: block;
+    text-align: center;
+
+    h4 {
+        font-size: 48px;
+        font-family: 'Amatic SC', cursive;
+    }
+    p {
+        margin: 10px 0;
+        font-family: 'Gluten', cursive;
+    }
+}
+
+.copyright {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    font-size: 10px;
+    margin: 0 auto;
+    background-color: $color80;
+
+    ul {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+
+      a{
+          display: inline-block;
+          margin: 0 10px;
+          font-size: $font-size;
+          text-decoration: none;
+
+          img {
+              width: 32px;
+              height: 32px;
+          }
+      }
+  }
+}
